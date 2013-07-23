@@ -18,12 +18,13 @@
     }
 
     function getCurrentPosition() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);    
+        var options = { enableHighAccuracy: true };
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);    
     }
         
     function watchPosition() {
         // Update every 3 seconds
-        var options = { frequency: 3000 };
+        var options = { frequency: 3000, enableHighAccuracy: true };
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);        
     }
     // onSuccess Geolocation
